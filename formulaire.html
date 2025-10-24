@@ -2,27 +2,522 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TED Project - Formulaire</title>
+    <title>Inscription Conférence IA</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .conteneur {
+            width: 600px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        select,
+        textarea {
+            width: 95%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .groupe-radio {
+            margin-top: 5px;
+        }
+
+        .groupe-radio label {
+            display: inline;
+            margin-right: 15px;
+            font-weight: normal;
+        }
+
+        textarea {
+            height: 80px;
+        }
+
+        .erreur {
+            color: red;
+            font-size: 12px;
+            margin-top: 3px;
+            display: none;
+        }
+
+        .champ-invalide {
+            border-color: red;
+            border-width: 2px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message-succes {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Formulaire</h1>
-    <form action="/submit" method="post">
-        <label for="name">Nom :</label>
-        <input type="text" id="name" name="name"><br><br>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="formulaire.html">Formulaire</a></li>
+        </ul>
+    </nav>
 
-        <label for="age">Âge :</label>
-        <input type="date" id="age" name="age"><br><br>
+    <div class="conteneur">
+        <h1>Inscription à la Conférence IA</h1>
         
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email"><br><br>
+        <div id="messageSucces" class="message-succes">
+            Inscription réussie ! Merci pour votre participation.
+        </div>
 
-        <label for="telephone">Téléphone :</label>
-        <input type="tel" id="telephone" name="telephone"><br><br>
+        <form id="formulaireInscription">
+            <label for="nom">Nom Complet :</label>
+            <input type="text" id="nom" name="nom">
+            <div id="erreurNom" class="erreur">Le nom doit contenir au moins 3 caractères</div>
 
-        <label for="message">Message :</label><br>
-        <textarea id="message" name="message" rows="4" cols="50"></textarea><br><br>
+            <label for="age">Âge :</label>
+            <input type="text" id="age" name="age">
+            <div id="erreurAge" class="erreur">L'âge doit être un nombre entre 16 et 100</div>
+
+            <label>Sexe :</label>
+            <div class="groupe-radio">
+                <input type="radio" id="homme" name="sexe" value="homme">
+                <label for="homme">Homme</label>
+                <input type="radio" id="femme" name="sexe" value="femme">
+                <label for="femme">Femme</label>
+                <input type="radio" id="autre" name="sexe" value="autre">
+                <label for="autre">Autre</label>
+            </div>
+            <div id="erreurSexe" class="erreur">Veuillez sélectionner votre sexe</div>
+
+            <label for="email">Email :</label>
+            <input type="text" id="email" name="email">
+            <div id="erreurEmail" class="erreur">Veuillez entrer une adresse email valide</div>
+
+            <label for="telephone">Numéro de Téléphone :</label>
+            <input type="text" id="telephone" name="telephone">
+            <div id="erreurTelephone" class="erreur">Le numéro doit contenir 10 chiffres</div>
+
+            <label for="domaine">Domaine d'intérêt en IA :</label>
+            <select id="domaine" name="domaine">
+                <option value="">-- Sélectionnez un domaine --</option>
+                <option value="art">Art Visuel</option>
+                <option value="chatbot">Chatbots Et Assistants Virtuels </option>
+                <option value="automatisation">Automatisation Des tâches </option>
+                <option value="video">Génération De Clips Vidéo à Partir D’un Scénario </option>
+            </select>
+            <div id="erreurDomaine" class="erreur">Veuillez sélectionner un domaine</div>
+
+            <label for="sujet">Sujet spécifique :</label>
+            <select id="sujet" name="sujet" disabled>
+                <option value="">-- Sélectionnez d'abord un domaine --</option>
+            </select>
+            <div id="erreurSujet" class="erreur">Veuillez sélectionner un sujet</div>
+
+            <label for="commentaire">Commentaire :</label>
+            <textarea id="commentaire" name="commentaire"></textarea>
+
+            <button type="button">Valider</button>
+        </form>
+    </div>
+
+    <script>
+        // les sujets pour chaque domaine
+        var sujetsParDomaine = new Object();
+        sujetsParDomaine['art'] = new Array('DALL-E', 'MidJourney', 'Leonardo Ai', 'Canva.AI');
+        sujetsParDomaine['chatbot'] = new Array('Chat Gpt', 'Claude', 'Gemini', 'Copilot');
+        sujetsParDomaine['automatisation'] = new Array('Make.com', 'Zapier', 'N8n', 'Flowise Ai');
+        sujetsParDomaine['video'] = new Array('Sora', 'Veo3', 'Pica', 'Kapwing');
+
+        var selectDomaine = document.getElementById('domaine');
+        var selectSujet = document.getElementById('sujet');
+
+        // quand on change le domaine
+        selectDomaine.addEventListener('change', function() {
+            var domaineChoisi = selectDomaine.value;
+            console.log('domaine:', domaineChoisi);
+            
+            // on vide d'abord la liste des sujets
+            selectSujet.innerHTML = '';
+            var optionVide = document.createElement('option');
+            optionVide.value = '';
+            optionVide.textContent = '-- Sélectionnez un sujet --';
+            selectSujet.appendChild(optionVide);
+            
+            if (domaineChoisi != '') {
+                selectSujet.disabled = false;
+                
+                // on ajoute les nouveaux sujets
+                var lesSujets = sujetsParDomaine[domaineChoisi];
+                for (var i = 0; i < lesSujets.length; i++) {
+                    var option = document.createElement('option');
+                    option.value = lesSujets[i];
+                    option.textContent = lesSujets[i];
+                    selectSujet.appendChild(option);
+                }
+            } else {
+                selectSujet.disabled = true;
+            }
+            
+            // cacher l'erreur
+            document.getElementById('erreurSujet').style.display = 'none';
+            document.getElementById('sujet').className = '';
+        });
+
+        var formulaire = document.getElementById('formulaireInscription');
         
-        <input type="submit" value="Valider">
+        // validation quand on envoie le formulaire
+        formulaire.addEventListener('button', function() {
+            
+            var toutEstValide = true;
+            
+            // verifier le nom
+            var champNom = document.getElementById('nom');
+            var messageErreurNom = document.getElementById('erreurNom');
+            if (champNom.value.length < 3) {
+                messageErreurNom.style.display = 'block';
+                champNom.className = 'champ-invalide';
+                toutEstValide = false;
+            } else {
+                messageErreurNom.style.display = 'none';
+                champNom.className = '';
+            }
+            
+            // verifier l'age
+            var champAge = document.getElementById('age');
+            var messageErreurAge = document.getElementById('erreurAge');
+            var valeurAge = champAge.value;
+            var ageValide = true;
+            
+            // verifier que c'est que des chiffres
+            if(valeurAge == '') {
+                ageValide = false;
+            }
+            for(var i=0; i<valeurAge.length; i++) {
+                var caractere = valeurAge[i];
+                if(caractere<'0' || caractere>'9') {
+                    ageValide = false;
+                }
+            }
+            
+            // convertir en nombre
+            var age = 0;
+            if(ageValide) {
+                age = parseInt(valeurAge);
+            }
+            
+            // verifier la valeur
+            if (!ageValide || age < 16 || age > 100) {
+                messageErreurAge.style.display = 'block';
+                champAge.className = 'champ-invalide';
+                toutEstValide = false;
+            } else {
+                messageErreurAge.style.display = 'none';
+                champAge.className = '';
+            }
+            
+            // verifier le sexe
+            var boutonsSexe = document.getElementsByName('sexe');
+            var messageErreurSexe = document.getElementById('erreurSexe');
+            var sexeSelectionne = false;
+            for (var i = 0; i < boutonsSexe.length; i++) {
+                if (boutonsSexe[i].checked) {
+                    sexeSelectionne = true;
+                }
+            }
+            if (!sexeSelectionne) {
+                messageErreurSexe.style.display = 'block';
+                toutEstValide = false;
+            } else {
+                messageErreurSexe.style.display = 'none';
+            }
+            
+            // verifier l'email
+            var champEmail = document.getElementById('email');
+            var messageErreurEmail = document.getElementById('erreurEmail');
+            var email = champEmail.value;
+            var emailValide = false;
+            
+            // chercher l'arobase et le point
+            var posArobase = -1;
+            var posPoint = -1;
+            for(var i=0; i<email.length; i++){
+                if(email[i]=='@'){
+                    posArobase = i;
+                }
+            }
+            for(var j=0; j<email.length; j++){
+                if(email[j]=='.'){
+                    posPoint = j;
+                }
+            }
+            
+            // verifier que arobase et point existent et que arobase est avant le point
+            if(posArobase>0 && posPoint>posArobase && email.length>5) {
+                emailValide = true;
+            }
+            
+            if (!emailValide) {
+                messageErreurEmail.style.display = 'block';
+                champEmail.className = 'champ-invalide';
+                toutEstValide = false;
+            } else {
+                messageErreurEmail.style.display = 'none';
+                champEmail.className = '';
+            }
+            
+            // verifier le telephone
+            var champTelephone = document.getElementById('telephone');
+            var messageErreurTelephone = document.getElementById('erreurTelephone');
+            var telephone = champTelephone.value;
+            
+            // enlever les espaces
+            var telephoneSansEspace = '';
+            for(var k = 0; k < telephone.length; k++) {
+                if(telephone[k] != ' ') {
+                    telephoneSansEspace = telephoneSansEspace + telephone[k];
+                }
+            }
+            
+            // verifier que c'est 10 chiffres
+            var telephoneValide = true;
+            if(telephoneSansEspace.length != 10) {
+                telephoneValide = false;
+            }
+            for(var m=0; m<telephoneSansEspace.length; m++) {
+                if(telephoneSansEspace[m]<'0' || telephoneSansEspace[m]>'9') {
+                    telephoneValide = false;
+                }
+            }
+            
+            if (!telephoneValide) {
+                messageErreurTelephone.style.display = 'block';
+                champTelephone.className = 'champ-invalide';
+                toutEstValide = false;
+            } else {
+                messageErreurTelephone.style.display = 'none';
+                champTelephone.className = '';
+            }
+            
+            // verifier le domaine
+            var champDomaine = document.getElementById('domaine');
+            var messageErreurDomaine = document.getElementById('erreurDomaine');
+            if (champDomaine.value == '') {
+                messageErreurDomaine.style.display = 'block';
+                champDomaine.className = 'champ-invalide';
+                toutEstValide = false;
+            } else {
+                messageErreurDomaine.style.display = 'none';
+                champDomaine.className = '';
+            }
+            
+            // verifier le sujet
+            var champSujet = document.getElementById('sujet');
+            var messageErreurSujet = document.getElementById('erreurSujet');
+            if (champSujet.value == '') {
+                messageErreurSujet.style.display = 'block';
+                champSujet.className = 'champ-invalide';
+                toutEstValide = false;
+            } else {
+                messageErreurSujet.style.display = 'none';
+                champSujet.className = '';
+            }
+            
+            // si tout est ok on affiche le message
+            if (toutEstValide) {
+                document.getElementById('messageSucces').style.display = 'block';
+                
+                // afficher dans la console
+                console.log('Nom:', champNom.value);
+                console.log('Age:', champAge.value);
+                
+                var valeurSexe = '';
+                for (var i = 0; i < boutonsSexe.length; i++) {
+                    if (boutonsSexe[i].checked) {
+                        valeurSexe = boutonsSexe[i].value;
+                    }
+                }
+                console.log('Sexe:', valeurSexe);
+                console.log('Email:', champEmail.value);
+                console.log('Telephone:', champTelephone.value);
+                console.log('Domaine:', champDomaine.value);
+                console.log('Sujet:', champSujet.value);
+                console.log('Commentaire:', document.getElementById('commentaire').value);
+                
+                // remonter en haut de la page
+                window.scrollTo(0, 0);
+            }
+            
+            return false;
+        });
+
+        // validation du nom quand on quitte le champ
+        document.getElementById('nom').addEventListener('blur', function() {
+            var messageErreurNom = document.getElementById('erreurNom');
+            if (this.value.length < 3) {
+                messageErreurNom.style.display = 'block';
+                this.className = 'champ-invalide';
+            } else {
+                messageErreurNom.style.display = 'none';
+                this.className = '';
+            }
+        });
+
+        // validation de l'age quand on quitte le champ
+        document.getElementById('age').addEventListener('blur', function() {
+            var messageErreurAge = document.getElementById('erreurAge');
+            var valeurAge = this.value;
+            var ageValide = true;
+            
+            if(valeurAge == '') {
+                ageValide = false;
+            }
+            for(var i=0; i<valeurAge.length; i++) {
+                var c = valeurAge[i];
+                if(c<'0' || c>'9') {
+                    ageValide = false;
+                }
+            }
+            
+            var age = 0;
+            if(ageValide) {
+                age = parseInt(valeurAge);
+            }
+            
+            if (!ageValide || age < 16 || age > 100) {
+                messageErreurAge.style.display = 'block';
+                this.className = 'champ-invalide';
+            } else {
+                messageErreurAge.style.display = 'none';
+                this.className = '';
+            }
+        });
+
+        // validation de l'email quand on quitte le champ
+        document.getElementById('email').addEventListener('blur', function() {
+            var messageErreurEmail = document.getElementById('erreurEmail');
+            var email = this.value;
+            var emailValide = false;
+            
+            var posArobase = -1;
+            var posPoint = -1;
+            for(var i=0; i<email.length; i++){
+                if(email[i]=='@') posArobase = i;
+            }
+            for(var j=0; j<email.length; j++){
+                if(email[j]=='.') posPoint = j;
+            }
+            
+            if(posArobase>0 && posPoint>posArobase && email.length>5) {
+                emailValide = true;
+            }
+            
+            if (!emailValide) {
+                messageErreurEmail.style.display = 'block';
+                this.className = 'champ-invalide';
+            } else {
+                messageErreurEmail.style.display = 'none';
+                this.className = '';
+            }
+        });
+
+        // validation du telephone quand on quitte le champ
+        document.getElementById('telephone').addEventListener('blur', function() {
+            var messageErreurTelephone = document.getElementById('erreurTelephone');
+            var telephone = this.value;
+            
+            var telephoneSansEspace = '';
+            for(var k = 0; k < telephone.length; k++) {
+                if(telephone[k] != ' ') {
+                    telephoneSansEspace = telephoneSansEspace + telephone[k];
+                }
+            }
+            
+            var telephoneValide = true;
+            if(telephoneSansEspace.length != 10) {
+                telephoneValide = false;
+            }
+            for(var m=0; m<telephoneSansEspace.length; m++) {
+                if(telephoneSansEspace[m]<'0' || telephoneSansEspace[m]>'9') {
+                    telephoneValide = false;
+                }
+            }
+            
+            if (!telephoneValide) {
+                messageErreurTelephone.style.display = 'block';
+                this.className = 'champ-invalide';
+            } else {
+                messageErreurTelephone.style.display = 'none';
+                this.className = '';
+            }
+        });
+    </script>
 </body>
 </html>
