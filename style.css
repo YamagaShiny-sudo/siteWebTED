@@ -110,7 +110,7 @@
         /* styles d'aide pour éléments surlignés */
         .surligne {
             background: #fff7e6;
-            border-left: 4px solid #f2a;
+            border-left: 4px solid rgb(255, 34, 34);
             padding:8px;
             border-radius:6px;
         }
