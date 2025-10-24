@@ -1,4 +1,4 @@
 # siteWebTED
 Un site web HTML/CSS et Javascript pour un projet universitaire
 
-https://www.ted.com/talks/yejin_choi_why_ai_is_incredibly_smart_and_shockingly_stupid/transcript?referrer=playlist-artificial_intelligence&autoplay=true&subtitle=en
+https://www.ted.com/talks/matan_cohen_grumi_friendly_pizza_ufos_and_the_joy_of_ai_generated_video?subtitle=en
