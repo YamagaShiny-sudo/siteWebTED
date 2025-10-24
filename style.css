@@ -88,14 +88,14 @@
         section{ margin-bottom:20px; }
         h2{ border-bottom:1px solid var(--border); padding-bottom:6px; margin-top:0; }
         h2.conclusion{ border-top:1px solid var(--border); padding-top:10px; }
-        .image-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; }
+        .image-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; justify-content: center; }
         .image-row img{ width:300px; height:180px; object-fit:cover; border-radius:6px; border:1px solid #ddd; }
 
         /* Zone d'ajout — champs */
         #adder .flex-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:flex-start; }
         #adder label{ display:block; margin-bottom:6px; font-size:0.95rem; }
         #adder select, #adder textarea, #adder input[type="checkbox"]{ width:100%; padding:8px; border-radius:6px; border:1px solid #ccc; font:inherit; box-sizing:border-box; }
-        #adder .min-width-220{ min-width:220px; }
+        #adder .selectStyle{ min-width:220px; }
         #adder .flex-1{ flex:1; min-width:260px; }
 
         /* Choix simplifiés */

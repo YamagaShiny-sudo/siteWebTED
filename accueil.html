@@ -20,7 +20,7 @@
 
         <div id="searchBar">
         <input id="inputRecherche" type="search" placeholder="Rechercher un mot...">
-        <button id="btnRecherche">Compter</button>
+        <button id="btnRecherche">Rechercher</button>
         <span id="resultatRecherche" aria-live="polite">Trouvé(s) : 0</span>
         </div>
     </div>
@@ -34,7 +34,7 @@
     <section id="intro">
         <h2>Introduction</h2>
         <p>
-        Matan Cohen Grumi raconte avec humour comment il a rejoind le monde de l'IA. Il decide de s'interreser et travailler dans la creation de videos generees par IA pour la principale raison est que c'est fun.
+            Matan Cohen Grumi raconte avec humour comment il a rejoint le monde de l'IA. Il décide de s'intéresser et travailler dans la création de vidéos générées par IA. Pour la principale raison, c'est que c'est fun.
         </p>
     </section>
 
@@ -48,7 +48,7 @@
     <section id="part2">
         <h3>Partie 2 — Simple expérience jusqu'au récit personnel</h3>
         <p>
-        Remarquant que l'IA est souvent mis en contexte pour raconter sa vie et d'ajouter un petit quelque chose en plus, son equipe decide de permettre a chacun de devenir l'heros de sa propre histoire a partir d'une seule image. Il montre dans la presentation une video amusante sur l'histoire de lui et d'une pizza venant de l'espace. C'etait tellement absurde que s'en est devenu marrant.
+            Remarquant que l'IA est souvent mise mise en contexte pour raconter sa vie et ajouter un petit quelque chose en plus, son équipe décide de permettre à chacun de devenir l'héros de sa propre histoire à partir d'une seule image. Il montre dans la présentation une vidéo amusante sur l'histoire de lui et d'une pizza venant de l'espace. C'était tellement absurde que c'en est devenu marrant.
         </p>
         <div class="image-row">
         <img src="images/pizza-matan.png" alt="pizza-matan">
@@ -56,30 +56,34 @@
     </section>
 
     <section id="part3">
-        <h3>Partie 3 — Impact et avenir</h3>
+        <h3>Partie 3 — Relation réel et artificiel</h3>
         <p>
-        L'entretien se clôt en discutant des impacts mesurables, de la portée plus large et de la vision de l'intervenant sur l'avenir de son domaine.
+            En introduisant une petite dose d'IA dans le réel, Matan remarque une nouvelle forme d'expression : l'IA ne remplace pas la réalité, elle l'enrichit. Ces vidéos font en sorte de créer un lien plus profond avec le public.
         </p>
         <div class="image-row">
-        <img src="https://via.placeholder.com/300x180?text=Image+5" alt="Image 5">
-        <img src="https://via.placeholder.com/300x180?text=Image+6" alt="Image 6">
+        <img src="images/tiktok-ia.png" alt="tiktok-ia">
         </div>
     </section>
 
     <section id="conclusion">
         <h2 class="conclusion">Conclusion</h2>
         <p>
-        Récapitulatif des principaux enseignements : la motivation compte, l'itération façonne le succès, et l'impact grandit lorsque le travail répond aux besoins des gens.
+         Matan finit sa présentation en disant que l'IA ne sert pas à fuir le réel mais le ressentir plus intensément. 
         </p>
     </section>
+    </main>
 
     <hr class="divider">
+
+    <section id="dynamicArea">
+        <h3>Éléments ajoutés</h3>
+        <div id="conteneurAjoute"></div>
+    </section>
 
     <section id="adder">
         <h3>Ajouter du contenu</h3>
         <div class="flex-row">
-        <!-- Sélecteur "Type d'élément" retiré : ajout par défaut en paragraphe -->
-        <div class="min-width-220">
+        <div class="selectStyle">
             <label for="choixTaille">Taille</label>
             <select id="choixTaille">
                 <option value="normal" selected>Normal</option>
@@ -88,7 +92,7 @@
             </select>
         </div>
 
-        <div class="min-width-220"></div>
+        <div class="selectStyle"></div>
             <label>Style du texte</label>
             <div class="text-style-options" role="radiogroup" aria-label="Style du texte">
                 <label><input type="radio" name="choixTexte" value="normal" checked> Normal</label>
@@ -97,7 +101,7 @@
             </div>
         </div>
 
-        <div class="min-width-220">
+        <div class="selectStyle">
             <label for="choixSurligne" style="display:block; margin-bottom:6px;">Surlignage</label>
             <label class="checkbox-inline"><input type="checkbox" id="choixSurligne"> Surligner l'élément</label>
         </div>
@@ -114,10 +118,6 @@
         </div>
     </section>
 
-    <section id="dynamicArea">
-        <h3>Éléments ajoutés</h3>
-        <div id="conteneurAjoute"></div>
-    </section>
     </main>
 
     <script src="contenu.js"></script>
