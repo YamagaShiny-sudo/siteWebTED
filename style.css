@@ -1,0 +1,116 @@
+:root{
+            --max-width:980px;
+            --gap:12px;
+            --radius:6px;
+            --muted:#666;
+            --border:#eee;
+        }
+
+        /* Bases de la page */
+        body{
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            color:#222;
+            line-height:1.5;
+            margin:0;
+            padding:0;
+        }
+        main#contenuPrincipal{
+            max-width:var(--max-width);
+            margin:18px auto;
+            padding:0 12px;
+        }
+
+        /* En-tête et contrôles supérieurs */
+        header.site-header{
+            padding:24px 12px;
+            border-bottom:1px solid var(--border);
+        }
+        .header-inner{
+            display:flex;
+            gap:var(--gap);
+            align-items:center;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            max-width:var(--max-width);
+            margin:0 auto;
+        }
+        .site-title{
+            margin:0;
+            text-align:left;
+            font-size:1.25rem;
+        }
+        /* Boutons en haut à droite */
+        .top-buttons{
+            display:flex;
+            gap:10px;
+        }
+        .top-buttons button,
+        .btn{
+            padding:8px 12px;
+            border-radius:6px;
+            border:1px solid #888;
+            background:#fff;
+            cursor:pointer;
+            font:inherit;
+        }
+
+        /* Barre de recherche */
+        #searchBar{
+            margin-top:12px;
+            display:flex;
+            gap:8px;
+            justify-content:center;
+            align-items:center;
+            max-width:var(--max-width);
+            margin-left:auto;
+            margin-right:auto;
+        }
+        #inputRecherche{
+            padding:8px 10px;
+            width:260px;
+            border-radius:var(--radius);
+            border:1px solid #ccc;
+            font:inherit;
+        }
+        #btnRecherche{
+            padding:8px 12px;
+            border-radius:6px;
+            border:1px solid #888;
+            background:#f3f3f3;
+            cursor:pointer;
+        }
+        #resultatRecherche{
+            font-weight:600;
+            color:#333;
+        }
+
+        /* Disposition des sections et images */
+        section{ margin-bottom:20px; }
+        h2{ border-bottom:1px solid var(--border); padding-bottom:6px; margin-top:0; }
+        h2.conclusion{ border-top:1px solid var(--border); padding-top:10px; }
+        .image-row{ display:flex; gap:12px; flex-wrap:wrap; margin-top:10px; }
+        .image-row img{ width:300px; height:180px; object-fit:cover; border-radius:6px; border:1px solid #ddd; }
+
+        /* Zone d'ajout — champs */
+        #adder .flex-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:flex-start; }
+        #adder label{ display:block; margin-bottom:6px; font-size:0.95rem; }
+        #adder select, #adder textarea, #adder input[type="checkbox"]{ width:100%; padding:8px; border-radius:6px; border:1px solid #ccc; font:inherit; box-sizing:border-box; }
+        #adder .min-width-220{ min-width:220px; }
+        #adder .flex-1{ flex:1; min-width:260px; }
+
+        /* Choix simplifiés */
+        .text-style-options { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+        .text-style-options label { display:flex; align-items:center; gap:6px; font-size:0.95rem; }
+        .checkbox-inline { width:auto; padding:0; border:none; }
+
+        .btn-add { border:1px solid #444; background:#eef; }
+
+        hr.divider { border:none; border-top:1px solid #eee; margin:24px 0; }
+
+        /* styles d'aide pour éléments surlignés */
+        .surligne {
+            background: #fff7e6;
+            border-left: 4px solid #f2a;
+            padding:8px;
+            border-radius:6px;
+        }

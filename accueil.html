@@ -3,10 +3,124 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>TED Project — Accueil</title>
+    <title>Projet TED — Accueil</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>SAlut</h1>
-    <p>Ceci est la page d'accueil du projet TED.</p>
+    <header class="site-header">
+    <div class="header-inner">
+        <h1 class="site-title">
+        Entretien TED — Thèmes
+        </h1>
+
+        <div class="top-buttons">
+        <button class="btn" onclick="location.href='accueil.html'">Accueil</button>
+        <button class="btn" onclick="location.href='formulaire.html'">Formulaire</button>
+        </div>
+
+        <div id="searchBar">
+        <input id="inputRecherche" type="search" placeholder="Rechercher un mot...">
+        <button id="btnRecherche">Compter</button>
+        <span id="resultatRecherche" aria-live="polite">Trouvé(s) : 0</span>
+        </div>
+    </div>
+    </header>
+
+    <main id="contenuPrincipal">
+    <section id="intro">
+        <h2>Introduction</h2>
+        <p>
+        Cette page résume trois thèmes principaux abordés lors d'un entretien TED. Chaque partie comprend un court paragraphe et des emplacements pour des images qui illustrent le sujet.
+        </p>
+    </section>
+
+    <section id="part1">
+        <h3>Partie 1 — Origines et motivation</h3>
+        <p>
+        L'intervenant explique ce qui l'a inspiré à commencer son travail, les expériences formatrices et le problème qu'il souhaitait résoudre.
+        </p>
+        <div class="image-row">
+        <img src="https://via.placeholder.com/300x180?text=Image+1" alt="Image 1">
+        <img src="https://via.placeholder.com/300x180?text=Image+2" alt="Image 2">
+        </div>
+    </section>
+
+    <section id="part2">
+        <h3>Partie 2 — Processus et défis</h3>
+        <p>
+        Cette section explore les méthodes, les échecs qui ont le plus enseigné et la manière dont les obstacles ont été transformés en leçons.
+        </p>
+        <div class="image-row">
+        <img src="https://via.placeholder.com/300x180?text=Image+3" alt="Image 3">
+        <img src="https://via.placeholder.com/300x180?text=Image+4" alt="Image 4">
+        </div>
+    </section>
+
+    <section id="part3">
+        <h3>Partie 3 — Impact et avenir</h3>
+        <p>
+        L'entretien se clôt en discutant des impacts mesurables, de la portée plus large et de la vision de l'intervenant sur l'avenir de son domaine.
+        </p>
+        <div class="image-row">
+        <img src="https://via.placeholder.com/300x180?text=Image+5" alt="Image 5">
+        <img src="https://via.placeholder.com/300x180?text=Image+6" alt="Image 6">
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <h2 class="conclusion">Conclusion</h2>
+        <p>
+        Récapitulatif des principaux enseignements : la motivation compte, l'itération façonne le succès, et l'impact grandit lorsque le travail répond aux besoins des gens.
+        </p>
+    </section>
+
+    <hr class="divider">
+
+    <section id="adder">
+        <h3>Ajouter du contenu</h3>
+        <div class="flex-row">
+        <!-- Sélecteur "Type d'élément" retiré : ajout par défaut en paragraphe -->
+        <div class="min-width-220">
+            <label for="choixTaille">Taille</label>
+            <select id="choixTaille">
+                <option value="normal" selected>Normal</option>
+                <option value="small">Petit</option>
+                <option value="large">Grand</option>
+            </select>
+        </div>
+
+        <div class="min-width-220"></div>
+            <label>Style du texte</label>
+            <div class="text-style-options" role="radiogroup" aria-label="Style du texte">
+                <label><input type="radio" name="choixTexte" value="normal" checked> Normal</label>
+                <label><input type="radio" name="choixTexte" value="bold"> Gras</label>
+                <label><input type="radio" name="choixTexte" value="italic"> Italique</label>
+            </div>
+        </div>
+
+        <div class="min-width-220">
+            <label for="choixSurligne" style="display:block; margin-bottom:6px;">Surlignage</label>
+            <label class="checkbox-inline"><input type="checkbox" id="choixSurligne"> Surligner l'élément</label>
+        </div>
+
+        <div class="flex-1">
+            <label for="nouveauContenu">Contenu</label>
+            <textarea id="nouveauContenu" rows="4" placeholder="Écrivez le paragraphe..."></textarea>
+        </div>
+        </div>
+
+        <div style="margin-top:12px;">
+        <button id="btnAjouter" class="btn btn-add">AJOUTER</button>
+        <small class="helper">Choisissez la taille, le style, et si vous voulez surligner.</small>
+        </div>
+    </section>
+
+    <section id="dynamicArea">
+        <h3>Éléments ajoutés</h3>
+        <div id="conteneurAjoute"></div>
+    </section>
+    </main>
+
+    <script src="contenu.js"></script>
 </body>
 </html>
